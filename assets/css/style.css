@@ -1,0 +1,239 @@
+/* Global Settings & Background */
+html,
+body {
+    font-family: 'Unbounded', sans-serif;
+    background-color: transparent;
+    /* Transparent for carousel */
+    height: 100vh;
+    /* Fallback */
+    height: 100dvh;
+    /* Dynamic Viewport Height for Mobile */
+    width: 100vw;
+    margin: 0;
+    padding: 0;
+    overflow: hidden !important;
+    /* Strict no scroll */
+    position: relative;
+    overscroll-behavior: none;
+}
+
+/* Background Carousel (Split Screen) */
+#background-carousel-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -10;
+    /* Behind everything */
+    display: flex;
+    filter: blur(4px);
+}
+
+#background-carousel-container img {
+    /* Filters handled by parent */
+    pointer-events: none;
+    user-select: none;
+}
+
+.bg-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+    background: transparent !important;
+    pointer-events: none;
+}
+
+/* Glassmorphism Card Enhanced */
+.glass-card {
+    background: rgba(15, 23, 42, 0.85);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.5);
+}
+
+.text-shadow-pro {
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.8);
+}
+
+/* Typography Enhancements */
+.text-glow {
+    text-shadow: 0 0 10px rgba(37, 99, 235, 0.5);
+}
+
+.text-gradient {
+    background: linear-gradient(to right, #3b82f6, #60a5fa, #ffffff);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+}
+
+/* Button Animations & Styles */
+.btn-premium {
+    background: linear-gradient(135deg, #2563eb 0%, #1d4ed8 100%);
+    box-shadow: 0 0 20px rgba(37, 99, 235, 0.6);
+    position: relative;
+    overflow: hidden;
+}
+
+.btn-premium::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+    transition: 0.5s;
+}
+
+.btn-premium:hover::before {
+    left: 100%;
+}
+
+.btn-premium:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 0 30px rgba(37, 99, 235, 0.8);
+}
+
+.btn-outline-wa {
+    background: transparent;
+    border: 2px solid #22c55e;
+    color: #22c55e;
+    transition: all 0.3s ease;
+    box-shadow: 0 0 10px rgba(34, 197, 94, 0.1);
+}
+
+.btn-outline-wa:hover {
+    background: #22c55e;
+    color: #ffffff;
+    box-shadow: 0 0 20px rgba(34, 197, 94, 0.4);
+    transform: translateY(-2px);
+}
+
+@keyframes pulse-glow {
+    0% {
+        transform: scale(1);
+        box-shadow: 0 0 0 0 rgba(37, 99, 235, 0.7);
+    }
+
+    70% {
+        transform: scale(1.02);
+        box-shadow: 0 0 0 15px rgba(37, 99, 235, 0);
+    }
+
+    100% {
+        transform: scale(1);
+        box-shadow: 0 0 0 0 rgba(37, 99, 235, 0);
+    }
+}
+
+.animate-pulse-glow {
+    animation: pulse-glow 2s infinite;
+}
+
+/* Utility Animations */
+@keyframes shimmer {
+    0% {
+        left: -100%;
+    }
+
+    20% {
+        left: 100%;
+    }
+
+    100% {
+        left: 100%;
+    }
+}
+
+.btn-shimmer::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 50%;
+    height: 100%;
+    background: linear-gradient(to right, transparent, rgba(255, 255, 255, 0.4), transparent);
+    transform: skewX(-20deg);
+    animation: shimmer 4s infinite;
+    pointer-events: none;
+}
+
+/* Urgency & Social Proof */
+.urgency-banner {
+    background: linear-gradient(to right, #1e3a8a, #7c3aed);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 4px 15px rgba(30, 58, 138, 0.3);
+}
+
+.social-proof {
+    animation: fadeInUp 1s ease-out 1s forwards;
+    opacity: 0;
+}
+
+#ticker-text {
+    transition: opacity 0.5s ease-in-out;
+    opacity: 1;
+}
+
+.fade-out {
+    opacity: 0 !important;
+}
+
+/* Utility Animations */
+.fade-in-up {
+    animation: fadeInUp 0.8s ease-out forwards;
+    opacity: 0;
+    transform: translateY(20px);
+}
+
+@keyframes fadeInUp {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.delay-100 {
+    animation-delay: 0.1s;
+}
+
+.delay-200 {
+    animation-delay: 0.2s;
+}
+
+.delay-300 {
+    animation-delay: 0.3s;
+}
+
+/* --- Mobile Safety Overrides (<768px) --- */
+@media (max-width: 768px) {
+
+    /* Enforce tighter spacing if utility classes conflict */
+    main {
+        padding-top: 0.5rem !important;
+        padding-bottom: 0.5rem !important;
+        justify-content: space-between !important;
+    }
+
+    .glass-card {
+        padding: 0.75rem !important;
+        margin-bottom: 0.25rem;
+    }
+
+    /* Force font reduction if needed */
+    h3 {
+        font-size: 1.25rem !important;
+        line-height: 1.2 !important;
+    }
+
+    /* Ensure footer is visible */
+    footer {
+        padding-bottom: 0.25rem !important;
+    }
+}
