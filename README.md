@@ -1,5 +1,7 @@
 # 🎰 1Win Chile VIP - Landing Page de Alta Conversión
 
+Pagina en github pages aqui: https://lexas-dev.github.io/landing-1win/
+
 ## 📝 Descripción
 Este proyecto es una **Bridge Page** de alto rendimiento diseñada para el mercado de iGaming en Chile. El objetivo principal es maximizar la conversión de usuarios (FTD) mediante una experiencia visual premium, señales de confianza y una optimización técnica extrema para dispositivos móviles.
 
