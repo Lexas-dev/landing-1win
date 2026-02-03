@@ -211,29 +211,106 @@ body {
     animation-delay: 0.3s;
 }
 
+
+/* Logo Glow Effect */
+.logo-header img {
+    filter: drop-shadow(0 0 10px rgba(66, 133, 244, 0.7));
+    transition: all 0.3s ease;
+}
+
+.logo-header img:hover {
+    filter: drop-shadow(0 0 20px rgba(66, 133, 244, 1));
+    transform: scale(1.03);
+}
+
 /* --- Mobile Safety Overrides (<768px) --- */
 @media (max-width: 768px) {
 
-    /* Enforce tighter spacing if utility classes conflict */
+    /* 1. Global Compact Container */
     main {
+        display: flex !important;
+        flex-direction: column !important;
+        justify-content: center !important;
+        gap: 15px !important;
+        /* Visual Harmony Gap */
+        padding-top: 20px !important;
+        /* Safety Margin Top */
+        padding-bottom: 20px !important;
+        /* Safety Margin Bottom */
+        height: 100dvh !important;
+        /* Full viewport height */
+    }
+
+    /* Prevent middle section from hogging all space */
+    .content-wrapper {
+        flex: 0 1 auto !important;
+        width: 100%;
+        margin-bottom: 5px !important;
+    }
+
+    /* 2. Logo VIP Styling */
+    .logo-header {
+        margin-top: 0 !important;
+        margin-bottom: 5px !important;
+    }
+
+    .logo-header img {
+        /* Enhance Glow & Size */
+        filter: drop-shadow(0 0 12px rgba(0, 163, 255, 0.6)) !important;
+        transform: scale(1.15);
+        /* Slightly bigger */
+        width: 140px !important;
+        /* Force larger size (approx w-36) */
+    }
+
+    /* 3. Urgency Banner Optimization */
+    .urgency-banner {
+        width: 90% !important;
+        /* Wider separator */
+        margin: 0 auto 5px auto !important;
+        padding: 0.5rem 0.5rem !important;
+    }
+
+    .urgency-banner p {
+        font-size: 11px !important;
+    }
+
+    /* Card Compactness */
+    .glass-card {
+        padding: 1rem !important;
+        margin-bottom: 0 !important;
+        /* Stuck to bottom section */
+    }
+
+    /* 4. Bottom Section "Sticking" */
+    .bottom-section {
+        margin-top: 0 !important;
+        display: flex !important;
+        flex-direction: column !important;
+        gap: 5px !important;
+    }
+
+    /* Ticker & Footer Elements */
+    .social-proof {
+        margin-top: 5px !important;
+        /* Small gap from card */
+        margin-bottom: 0 !important;
+    }
+
+    footer {
+        padding-bottom: 0 !important;
+        margin-top: 0 !important;
+    }
+
+    .instagram-cta {
+        margin: 0 !important;
         padding-top: 0.5rem !important;
         padding-bottom: 0.5rem !important;
-        justify-content: space-between !important;
     }
 
-    .glass-card {
-        padding: 0.75rem !important;
-        margin-bottom: 0.25rem;
-    }
-
-    /* Force font reduction if needed */
-    h3 {
-        font-size: 1.25rem !important;
-        line-height: 1.2 !important;
-    }
-
-    /* Ensure footer is visible */
-    footer {
-        padding-bottom: 0.25rem !important;
+    .legal-footer {
+        margin-top: 2px !important;
+        padding-top: 2px !important;
+        padding-bottom: 2px !important;
     }
 }
