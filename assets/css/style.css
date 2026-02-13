@@ -47,6 +47,13 @@ body {
     pointer-events: none;
 }
 
+/* Casinos Grid & Layout */
+.casinos-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+}
+
 /* Glassmorphism Card Enhanced */
 .glass-card {
     background: rgba(15, 23, 42, 0.85);
@@ -98,6 +105,33 @@ body {
 .btn-premium:hover {
     transform: translateY(-2px);
     box-shadow: 0 0 30px rgba(37, 99, 235, 0.8);
+}
+
+.btn-apuestalo {
+    background: linear-gradient(135deg, #9333ea 0%, #c026d3 100%);
+    box-shadow: 0 0 20px rgba(147, 51, 234, 0.6);
+    position: relative;
+    overflow: hidden;
+}
+
+.btn-apuestalo::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+    transition: 0.5s;
+}
+
+.btn-apuestalo:hover::before {
+    left: 100%;
+}
+
+.btn-apuestalo:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 0 30px rgba(192, 38, 211, 0.8);
 }
 
 .btn-outline-wa {
@@ -276,10 +310,21 @@ body {
     }
 
     /* Card Compactness */
+    .casinos-grid {
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+    }
+
     .glass-card {
-        padding: 1rem !important;
+        padding: 0.75rem !important; /* Smaller padding */
         margin-bottom: 0 !important;
-        /* Stuck to bottom section */
+        flex: 1; /* Distribute space evenly */
+        min-height: 0; /* Allow shrinking */
+    }
+    
+    .glass-card img.logo-glow {
+        max-height: 40px !important; /* Smaller logos on mobile */
     }
 
     /* 4. Bottom Section "Sticking" */

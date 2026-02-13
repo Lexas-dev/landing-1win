@@ -53,14 +53,14 @@ function preloadImages() {
 }
 
 // Robust Copy Logic
-function copyCode(text) {
+function copiarCodigo(textoCodigo) {
     if (navigator.clipboard && navigator.clipboard.writeText) {
-        navigator.clipboard.writeText(text).then(showFeedback).catch(err => {
+        navigator.clipboard.writeText(textoCodigo).then(showFeedback).catch(err => {
             console.error('Clipboard copy failed:', err);
-            fallbackCopy(text);
+            fallbackCopy(textoCodigo);
         });
     } else {
-        fallbackCopy(text);
+        fallbackCopy(textoCodigo);
     }
 }
 
